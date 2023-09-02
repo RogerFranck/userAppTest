@@ -10,8 +10,17 @@ export default function UserDetail({ route }: any) {
     id,
   });
   console.log(data);
+
+  if (data === null) {
+    return (
+      <View>
+        <Text>Cargando</Text>
+      </View>
+    );
+  }
+
   return (
-    <LoaderContainer loading={isLoading && data === null}>
+    <LoaderContainer loading={isLoading}>
       <View style={styles.container}>
         <Image
           style={styles.tinyLogo}
